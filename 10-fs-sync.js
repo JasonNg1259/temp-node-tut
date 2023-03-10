@@ -1,0 +1,17 @@
+const { readFileSync, writeFileSync, read } = require("fs");
+
+const first = readFileSync("./content/first.txt", "utf8");
+const second = readFileSync("./content/second.txt", "utf8");
+
+console.log(first, second);
+
+writeFileSync(
+  "./content/result-sync.txt",
+  `Here is the result: ${first}, ${second}`
+);
+/*line 16 got third parameter which append the text to the existing text file*/
+writeFileSync(
+  "./content/result-sync.txt",
+  `Here is the result: ${first}, ${second}`,
+  { flag: "a" }
+);
